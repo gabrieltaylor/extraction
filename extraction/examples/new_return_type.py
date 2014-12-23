@@ -33,7 +33,7 @@ class AddressExtractor(Extractor):
 class AddressTechnique(Technique):
     def extract(self, html):
         "Extract address data from willarson.com."
-        soup = BeautifulSoup(html)
+        soup = BeautifulSoup(html, 'html.parser')
         div = soup.find('div', id='address')
         return {
             'addresses': [" ".join(div.strings)],
